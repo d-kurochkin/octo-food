@@ -1,0 +1,33 @@
+<div id="container" class="container-fluid" role="main">
+
+  <div class="row">
+    <%= erb :navbar %>
+
+    <div class="row">
+      <div class="col-md-4">
+        <%= erb :order %>
+      </div>
+
+      <div class="col-md-8">
+
+        <ol class="breadcrumb">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Library</a></li>
+          <li class="active">Data</li>
+        </ol>
+
+        <div class="row">
+          <%= erb :item, locals: {title: 'Голубцы', image: false} %>
+          <%= erb :category, locals: {title: 'Супы', image: 'cafe4.jpg'} %>
+          <%= erb :category, locals: {title: 'Салаты', image: 'q6.jpg'} %>
+          <%= erb :item, locals: {title: 'Пельмени', image: 'Cafe3.jpg'} %>
+          <%= erb :item, locals: {title: 'Плов обычный', image: 'q10.jpg'} %>
+          <%= erb :item, locals: {title: 'Ля макароны ля c фаршем', image: 'q13.jpg'} %>
+          <%= erb :category, locals: {title: 'Вторые блюда', image: 'q8.jpg'} %>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
