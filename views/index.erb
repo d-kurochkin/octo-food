@@ -17,17 +17,27 @@
         </ol>
 
         <div class="row">
-          <%= erb :item, locals: {title: 'Голубцы', image: false} %>
-          <%= erb :category, locals: {title: 'Супы', image: 'cafe4.jpg'} %>
-          <%= erb :category, locals: {title: 'Салаты', image: 'q6.jpg'} %>
-          <%= erb :item, locals: {title: 'Пельмени', image: 'Cafe3.jpg'} %>
-          <%= erb :item, locals: {title: 'Плов обычный', image: 'q10.jpg'} %>
-          <%= erb :item, locals: {title: 'Ля макароны ля c фаршем', image: 'q13.jpg'} %>
-          <%= erb :category, locals: {title: 'Вторые блюда', image: 'q8.jpg'} %>
+          <table class="table">
+            <tr>
+              <td><%= erb :item, locals: {title: 'Голубцы'} %></td>
+              <td><%= erb :category, locals: {title: 'Супы'} %></td>
+              <td><%= erb :category, locals: {title: 'Салаты'} %></td>
+            </tr>
 
+            <tr>
+
+              <td><%= erb :item, locals: {title: 'Пельмени'} %></td>
+              <td><%= erb :item, locals: {title: 'Плов обычный'} %></td>
+              <td><%= erb :item, locals: {title: 'Ля макароны ля c фаршем'} %></td>
+            </tr>
+
+            <tr>
+              <td> <%= erb :category, locals: {title: 'Вторые блюда'} %></td>
+            </tr>
+
+          </table>
         </div>
       </div>
     </div>
-
   </div>
 </div>
