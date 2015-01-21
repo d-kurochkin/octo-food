@@ -1,38 +1,41 @@
-<div id="container" class="container-fluid" role="main" style="width: 1020px !important;">
+<div id="container" class="container-fluid" role="main">
   <div class="row">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-sm-4">
         <%= erb :order %>
       </div>
 
-      <div class="col-md-8">
-
-        <ol class="breadcrumb">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Library</a></li>
-          <li class="active">Data</li>
-        </ol>
-
+      <div class="col-sm-8">
         <div class="row">
           <table class="table">
             <tr>
               <td><%= erb :item, locals: {title: 'Голубцы'} %></td>
               <td><%= erb :category, locals: {title: 'Супы'} %></td>
-              <td><%= erb :category, locals: {title: 'Салаты'} %></td>
+              <td><%= erb :category, locals: {title: 'Салаты вообще супермега вкусные есь жи'} %></td>
             </tr>
 
             <tr>
 
               <td><%= erb :item, locals: {title: 'Пельмени'} %></td>
-              <td><%= erb :item, locals: {title: 'Плов обычный'} %></td>
+              <td><%= erb :item, locals: {title: 'Плов обычный но немного необычный'} %></td>
               <td><%= erb :item, locals: {title: 'Ля макароны ля c фаршем'} %></td>
             </tr>
 
             <tr>
+              <td> <%= erb :category, locals: {title: 'Первые блюда'} %></td>
               <td> <%= erb :category, locals: {title: 'Вторые блюда'} %></td>
+              <td> <%= erb :category, locals: {title: 'Третьи блюда'} %></td>
             </tr>
-
+            <tr>
+              <td> <%= erb :category, locals: {title: 'Четвертые блюда'} %></td>
+              <td> <%= erb :category, locals: {title: 'Пятые блюда'} %></td>
+              <td> <%= erb :category, locals: {title: 'Шестые блюда'} %></td>
+            </tr>
           </table>
+
+
+          <%= erb :navbar %>
+
         </div>
       </div>
     </div>

@@ -1,32 +1,37 @@
+.container {
+    width: 970px !important;
+}
+
 [class*="col-"] {
-  padding-top: 15px;
-  padding-bottom: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
-
-hr {
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-
-/*body {*/
-  /*padding-top: 70px;*/
-  /*padding-bottom: 30px;*/
-/*}*/
-
 
 .table {
-  table-layout: fixed;
-  word-wrap: break-word;
+    table-layout: fixed;
+    word-wrap: break-word;
 }
 
 .error {
-  color: #FF0000;
-}
-
-.page-title {
-  margin-left: 20px;
+    color: #FF0000;
 }
 
 .btn-stretched {
-  width:100%;
+    width: 100%;
+    white-space: normal;
+    height: 70px;
+}
+
+.thumbnail-fixed {
+    height: 120px;
+    margin-bottom: 10px;
+}
+
+.order-panel {
+    height: 660px !important;
+}
+
+.panel-body {
+    padding-left: 0px;
+    padding-right: 0px;
 }
