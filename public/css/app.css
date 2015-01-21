@@ -24,7 +24,7 @@
 
 .thumbnail-fixed {
     height: 120px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .order-panel {
@@ -34,4 +34,9 @@
 .panel-body {
     padding-left: 0px;
     padding-right: 0px;
+}
+
+.nav-panel {
+    margin: 1px 10px 5px;
+    padding: 5px;
 }

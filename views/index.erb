@@ -4,8 +4,15 @@
       <%= erb :order %>
     </div>
 
+
     <div class="col-sm-8">
       <div class="row">
+        <%= erb :navbar %>
+      </div>
+
+      <div class="row">
+
+
         <table class="table">
           <tr>
             <td><%= erb :item, locals: {title: 'Голубцы'} %></td>
@@ -25,15 +32,15 @@
             <td> <%= erb :category, locals: {title: 'Вторые блюда'} %></td>
             <td> <%= erb :category, locals: {title: 'Третьи блюда'} %></td>
           </tr>
+
           <tr>
             <td> <%= erb :category, locals: {title: 'Четвертые блюда'} %></td>
             <td> <%= erb :category, locals: {title: 'Пятые блюда'} %></td>
             <td> <%= erb :category, locals: {title: 'Шестые блюда'} %></td>
           </tr>
+
         </table>
 
-
-        <%= erb :navbar %>
 
       </div>
     </div>
