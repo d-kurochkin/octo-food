@@ -19,10 +19,5 @@ end
 # Populate the table
 ArticlesImport.get.each { |article| Article.insert(article)}
 
-
-
-# Print out the number of records
-# puts Article.where.delete
-
 # Print out the average price
 puts "Импортировано записей: #{Article.count}"
