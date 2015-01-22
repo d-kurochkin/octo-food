@@ -42,7 +42,7 @@ function updateArticle(name, code, price) {
 
 function updateTotalPrice() {
     var total = 0;
-    $('#articles-tbody tr').each(function () {
+    $('#articles-tbody').find('tr').each(function () {
         var quantity = parseInt($(this).attr('quantity'));
         var price = parseInt($(this).attr('price'));
 

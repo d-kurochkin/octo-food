@@ -19,17 +19,16 @@
 .btn-stretched {
     width: 100%;
     white-space: normal;
-    height: 70px;
+    height: 100px;
+    margin-bottom: 5px;
 }
 
-.thumbnail-fixed {
-    height: 120px;
-    margin-bottom: 15px;
+.btn-stretched h5 {
+    margin-top: 0px;
 }
 
 .order-panel {
     height: 650px !important;
-
 }
 
 .panel-body {

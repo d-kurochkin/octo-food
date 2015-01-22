@@ -13,6 +13,8 @@ MAPPINGS = {
 
 IMPORT_PATH = 'menu.ekz'
 
+PAGE_LIMIT = 15
+
 class ArticleService
   def self.load
     file = File.new IMPORT_PATH
@@ -37,7 +39,7 @@ class ArticleService
   def self.get_page category, page
     Article.where(:parent => category)
         .order(Sequel.desc(:is_group))
-        .limit(12, page*12)
+        .limit(PAGE_LIMIT, page*PAGE_LIMIT)
         .map { |item| item.values }
   end
 
@@ -51,6 +53,6 @@ class ArticleService
 
   def self.get_count category
     count = Article.where(:parent => category).count
-    (count.to_f / 12).ceil
+    (count.to_f / PAGE_LIMIT).ceil
   end
 end
