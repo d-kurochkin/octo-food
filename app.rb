@@ -9,7 +9,7 @@ register Sinatra::Reloader
 set :bind, '0.0.0.0'
 
 # Загружаем данные из файла
-ArticleModel.import
+ArticleService.import
 
 get '/' do
   erb :index
@@ -17,10 +17,10 @@ end
 
 get '/articles/*.*' do |category, page|
   @page = page.to_i
-  @count = ArticleModel.get_count category
+  @count = ArticleService.get_count category
   if @count > 0
-    @articles = ArticleModel.get_page category, @page
-    @parent = ArticleModel.get_parent @articles.first[:parent]
+    @articles = ArticleService.get_page category, @page
+    @parent = ArticleService.get_parent @articles.first[:parent]
     erb :articles, :layout => false, :locals => {category: category, parent: @parent, total: @count, page: @page, articles: @articles}
   else
     status 404

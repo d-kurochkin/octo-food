@@ -17,7 +17,7 @@ end
 class Article < Sequel::Model;
 end
 
-class ArticleModel
+class ArticleService
   def self.import
     ArticlesImport.get.each { |article| Article.insert(article) }
     puts "Импортировано записей: #{Article.count}"
