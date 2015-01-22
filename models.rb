@@ -1,11 +1,14 @@
 require 'sequel'
 
+require './articles_import'
+
 DB = Sequel.sqlite
 
 DB.create_table :articles do
   primary_key :id
   String :code
   String :name
+  String :parent
   Boolean :is_group
   Float :price
 end
@@ -13,11 +16,8 @@ end
 class Article < Sequel::Model;
 end
 
-
 # Populate the table
-Article.insert(:name => 'abc', :price => rand * 100)
-Article.insert(:name => 'def', :price => rand * 100)
-Article.insert(:name => 'ghi', :price => rand * 100)
+ArticlesImport.get.each { |article| Article.insert(article)}
 
 # Print out the number of records
 puts "Item count: #{Article.count}"
