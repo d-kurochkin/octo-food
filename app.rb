@@ -8,6 +8,8 @@ require './models'
 register Sinatra::Reloader
 set :bind, '0.0.0.0'
 
+# Загружаем данные из файла
+ArticleModel.import
 
 get '/' do
   erb :index
