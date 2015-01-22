@@ -19,30 +19,15 @@
 
 <div class="row">
   <table class="table">
-    <tr>
-      <td><%= erb :item, locals: {title: 'Голубцы'} %></td>
-      <td><%= erb :category, locals: {title: 'Супы'} %></td>
-      <td><%= erb :category, locals: {title: 'Салаты вообще супермега вкусные есь жи'} %></td>
-    </tr>
+    <% articles.each_with_index do |item, index| %>
+      <% puts item[:is_group].inspect %>
 
-    <tr>
+      <td>
+        <%= erb :category, locals: item if item[:is_group] == 1 %>
+        <%= erb :item, locals: item if item[:is_group] == 0 %>
+      </td>
 
-      <td><%= erb :item, locals: {title: 'Пельмени'} %></td>
-      <td><%= erb :item, locals: {title: 'Плов обычный но немного необычный'} %></td>
-      <td><%= erb :item, locals: {title: 'Ля макароны ля c фаршем'} %></td>
-    </tr>
-
-    <tr>
-      <td> <%= erb :category, locals: {title: 'Первые блюда'} %></td>
-      <td> <%= erb :category, locals: {title: 'Вторые блюда'} %></td>
-      <td> <%= erb :category, locals: {title: 'Третьи блюда'} %></td>
-    </tr>
-
-    <tr>
-      <td> <%= erb :category, locals: {title: 'Четвертые блюда'} %></td>
-      <td> <%= erb :category, locals: {title: 'Пятые блюда'} %></td>
-      <td> <%= erb :category, locals: {title: 'Шестые блюда'} %></td>
-    </tr>
-
+      <%= '</tr>' if index.modulo(3) == 2 %>
+    <% end %>
   </table>
 </div>
