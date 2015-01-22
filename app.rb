@@ -4,6 +4,7 @@ require 'erb'
 require 'json'
 
 require './services/article_service'
+require './services/order_service'
 
 register Sinatra::Reloader
 set :bind, '0.0.0.0'
@@ -25,4 +26,10 @@ get '/articles/*.*' do |category, page|
   else
     status 404
   end
+end
+
+
+post '/order' do
+  OrderService.process params
+  'обработано'
 end

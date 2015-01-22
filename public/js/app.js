@@ -69,6 +69,27 @@ function removeItem(code) {
 }
 
 function sendOrder(){
+    var order = {
+        timestamp: new Date().getTime(),
+        items: {}
+    };
+    $('#articles-tbody').find('tr').each(function () {
+        var item = $(this);
+
+        var code = item.attr('code');
+        var quantity = parseInt(item.attr('quantity'));
+        var price = parseInt(item.attr('price'));
+
+        order.items[code] = {
+            quantity: quantity,
+            price: price
+        }
+    });
+
+    $.post('/order', order, function(data){
+        alert('Результат запроса: '+data);
+        emptyOrder();
+    })
 
 }
 

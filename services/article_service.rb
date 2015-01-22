@@ -1,5 +1,4 @@
 require 'nori'
-require 'gyoku'
 
 require './models'
 
