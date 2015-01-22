@@ -41,6 +41,6 @@ class ArticleModel
 
   def self.get_count category
     count = Article.where(:parent => category).count
-    ((count.to_i + 0.0) / 12).ceil
+    (count.to_f / 12).ceil
   end
 end
