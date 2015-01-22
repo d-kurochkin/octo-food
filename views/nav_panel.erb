@@ -1,0 +1,19 @@
+<div class="nav-panel">
+  <button type="button" class="btn btn-default btn-lg" onclick='loadPage("M",0);'>На главную</button>
+  <button type="button"
+          class="btn btn-default btn-lg <%= 'disabled' if category == 'M' %>"
+          <%= "onclick='loadPage(\"#{parent}\", 0)'"%>>
+    <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+    Назад
+  </button>
+
+  <div class="pull-right">
+    <button type="button" class="btn btn-default btn-lg" <%= "onclick='loadPage(\"#{category}\",#{page-1})'" if page > 0 %>>
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    </button>
+    <%= page.to_i + 1 %> из <%= total %>
+    <button type="button" class="btn btn-default btn-lg" <%= "onclick='loadPage(\"#{category}\",#{page+1})'" if page < total-1 %>>
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    </button>
+  </div>
+</div>
