@@ -29,4 +29,9 @@ class ArticleModel
         .limit(12, page*12)
         .map { |item| item.values }
   end
+
+  def self.get_count category
+    count = Article.where(:parent => category).count
+    ((count.to_i + 0.0) / 12).ceil
+  end
 end

@@ -7,10 +7,11 @@
     </button>
 
     <div class="pull-right">
-      <button type="button" class="btn btn-default btn-lg">
+      <button type="button" class="btn btn-default btn-lg" <%= "onclick='loadPage(#{page-1})'" if page > 0 %>>
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
       </button>
-      <button type="button" class="btn btn-default btn-lg">
+      <%= page.to_i + 1 %> из <%= total %>
+      <button type="button" class="btn btn-default btn-lg" <%= "onclick='loadPage(#{page+1})'" if page < total %>>
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       </button>
     </div>
@@ -20,12 +21,12 @@
 <div class="row">
   <table class="table">
     <% articles.each_with_index do |item, index| %>
-      <td>
-        <%= erb :category, locals: item if item[:is_group] == 1 %>
-        <%= erb :item, locals: item if item[:is_group] == 0 %>
-      </td>
+        <td>
+          <%= erb :category, locals: item if item[:is_group] == 1 %>
+          <%= erb :item, locals: item if item[:is_group] == 0 %>
+        </td>
 
-      <%= '</tr>' if index.modulo(3) == 2 %>
+        <%= '</tr>' if index.modulo(3) == 2 %>
     <% end %>
   </table>
 </div>

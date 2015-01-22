@@ -17,8 +17,11 @@ get '/' do
 end
 
 get '/articles/*.*' do |category, page|
-  @articles = ArticleModel.get_page category, page.to_i
-  erb :articles, :layout => false, :locals => {page: page, articles:@articles}
+  @page = page.to_i
+  @count = ArticleModel.get_count category
+  @articles = ArticleModel.get_page category, @page
+
+  erb :articles, :layout => false, :locals => {total: @count, page: @page, articles:@articles}
 end
 
 
