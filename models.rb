@@ -24,6 +24,6 @@ puts "Импортировано записей: #{Article.count}"
 
 class ArticleModel
   def self.get_page category, page
-    Article.where(:parent => category).limit(12, page*12).map { |item| item.values }
+    Article.where(:parent => category).order(Sequel.desc(:is_group)).limit(12, page*12).map { |item| item.values }
   end
 end

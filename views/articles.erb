@@ -20,8 +20,6 @@
 <div class="row">
   <table class="table">
     <% articles.each_with_index do |item, index| %>
-      <% puts item[:is_group].inspect %>
-
       <td>
         <%= erb :category, locals: item if item[:is_group] == 1 %>
         <%= erb :item, locals: item if item[:is_group] == 0 %>
