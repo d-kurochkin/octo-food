@@ -1,5 +1,3 @@
 $(document).ready(function(){
-    $("p").click(function(){
-        $(this).hide();
-    });
+    $("#articles-content").load('/articles');
 });
