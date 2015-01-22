@@ -29,14 +29,21 @@
 
 .order-panel {
     height: 650px !important;
+
 }
 
 .panel-body {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding: 0px;
 }
 
 .nav-panel {
     margin: 1px 10px 5px;
     padding: 5px;
 }
+
+.order-tbody {
+    height: 500px;
+    overflow: auto;
+    display: block;
+}
+

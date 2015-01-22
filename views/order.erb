@@ -5,41 +5,25 @@
       <small class="pull-right">№0001</small>
     </h4>
   </div>
+
   <div class="panel-body">
-
-    <table class="table table-condensed table-responsive ">
+    <table class="table table-condensed order-tbody" >
       <thead>
-      <tr>
-        <th>Наим.</th>
-        <th>Цена</th>
-      </tr>
+        <th class="col-sm-2"></th>
+        <th class="col-sm-7">Наименование</th>
+        <th class="col-sm-3">Стоимость</th>
       </thead>
+      <tbody id="articles-tbody">
 
-      <tbody>
-      <tr>
-        <td>Итальянская пицца</td>
-
-        <td>2x1500</td>
-      </tr>
-
-      <tr>
-        <td>Американо</td>
-
-        <td>1x480</td>
-      </tr>
-
-      <tr>
-        <td>Компот</td>
-        <td>1x120</td>
-      </tr>
       </tbody>
     </table>
 
+    <div class="nav-panel">
+      <a href="#" class="btn btn-info pull-left" onclick="emptyOrder();">Новый</a>
+      <a href="#" class="btn btn-success pull-right">Оплата</a>
+    </div>
+
   </div>
 
-  <div class="nav-panel">
-    <a href="#" class="btn btn-danger">Отменить</a>
-    <a href="#" class="btn btn-info disabled">Скидка</a>
-    <a href="#" class="btn btn-success">Оплата</a>
-  </div>
+
 </div>
