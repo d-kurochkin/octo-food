@@ -18,10 +18,11 @@ end
 
 get '/articles/*.*' do |category, page|
   @page = page.to_i
+  @parent = 'M'
   @count = ArticleModel.get_count category
   @articles = ArticleModel.get_page category, @page
 
-  erb :articles, :layout => false, :locals => {category:category, total: @count, page: @page, articles:@articles}
+  erb :articles, :layout => false, :locals => {category:category, parent:@parent, total: @count, page: @page, articles:@articles}
 end
 
 
