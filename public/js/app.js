@@ -37,11 +37,10 @@ function updateArticle(name, code, price) {
 
 function removeItem(code) {
     var row = $('#article-'+code);
-    var quantity = parseInt(row.attr('quantity'));
-    if (quantity > 1) {
+    var quantity = parseInt(row.attr('quantity')) - 1;
+    if (quantity > 0) {
         var price = parseInt(row.attr('price'));
 
-        --quantity;
         row.attr('quantity', quantity);
         row.find(':nth-child(3)').html(quantity + ' <b>x</b> ' + price);
     } else {
