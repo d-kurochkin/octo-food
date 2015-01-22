@@ -26,5 +26,3 @@ get '/articles/*.*' do |category, page|
     status 404
   end
 end
-
-
