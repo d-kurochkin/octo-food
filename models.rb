@@ -1,4 +1,5 @@
 require 'sequel'
+require 'gyoku'
 
 require './articles_import'
 

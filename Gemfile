@@ -7,6 +7,7 @@ gem 'json'
 
 gem 'nokogiri'
 gem 'nori'
+gem 'gyoku'
 
 gem 'sequel'
 gem 'sqlite3'
