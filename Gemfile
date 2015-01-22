@@ -7,7 +7,6 @@ gem 'sinatra-contrib'
 gem 'nokogiri'
 gem 'nori'
 
-gem 'data_mapper'
-gem 'dm-sqlite-adapter'
+gem 'sequel'
 gem 'sqlite3'
 
