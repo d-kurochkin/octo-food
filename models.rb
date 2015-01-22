@@ -1,7 +1,4 @@
 require 'sequel'
-require 'gyoku'
-
-require './articles_import'
 
 DB = Sequel.sqlite
 
@@ -17,29 +14,3 @@ end
 class Article < Sequel::Model;
 end
 
-class ArticleService
-  def self.import
-    ArticlesImport.get.each { |article| Article.insert(article) }
-    puts "Импортировано записей: #{Article.count}"
-  end
-
-  def self.get_page category, page
-    Article.where(:parent => category)
-        .order(Sequel.desc(:is_group))
-        .limit(12, page*12)
-        .map { |item| item.values }
-  end
-
-  def self.get_parent category
-    if category == 'M'
-      'M'
-    else
-      Article.where(:code => category).first.values[:parent]
-    end
-  end
-
-  def self.get_count category
-    count = Article.where(:parent => category).count
-    (count.to_f / 12).ceil
-  end
-end

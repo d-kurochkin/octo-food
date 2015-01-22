@@ -3,7 +3,7 @@ require 'sinatra/reloader'
 require 'erb'
 require 'json'
 
-require './models'
+require './services/article_service'
 
 register Sinatra::Reloader
 set :bind, '0.0.0.0'
