@@ -1,5 +1,5 @@
-function loadPage(page) {
-    $("#articles-content").load('/articles/M.' + page);
+function loadPage(category, page) {
+    $("#articles-content").load('/articles/'+category+'.' + page);
 }
 
 $(document).ready(function(){
