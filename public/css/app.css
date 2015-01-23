@@ -44,5 +44,6 @@
     height: 600px;
     overflow: auto;
     display: block;
+    margin: 0px;
 }
 
