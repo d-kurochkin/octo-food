@@ -12,7 +12,6 @@ function addArticle(name, code, price) {
     } else {
         updateArticle(name, code, price);
     }
-
     updateTotalPrice();
 }
 
@@ -32,7 +31,6 @@ function addNewArticle(name, code, price) {
 
 function updateArticle(name, code, price) {
     var row = article(code);
-
     var quantity = parseInt(row.attr('quantity')) + 1;
     var price = parseInt(row.attr('price'));
 
@@ -48,7 +46,6 @@ function updateTotalPrice() {
 
         total += quantity * price;
     });
-
     $('#total-price').text('Заказ: '+total+' тг.');
 }
 
@@ -64,7 +61,6 @@ function removeItem(code) {
     } else {
         row.remove();
     }
-
     updateTotalPrice();
 }
 
@@ -95,9 +91,7 @@ function sendOrder(){
             alert('Заказ на сумму '+total_price+' оплачен.');
             emptyOrder();
         }
-
-    })
-
+    });
 }
 
 function emptyOrder() {
