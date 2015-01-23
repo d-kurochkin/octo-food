@@ -92,12 +92,12 @@ CODE_TABLE_RU = {
 DEBUG = true
 
 class DisplayService
-  def self.hello_string
+  def self.show_hello
     string = DisplayService.code_string 'Добро пожаловать'
     DisplayService.write string
   end
 
-  def self.result_string price
+  def self.show_price price
     string = DisplayService.code_string("Приятного аппетита\n\rИтого: #{price} тг.")
     DisplayService.write string
   end

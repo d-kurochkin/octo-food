@@ -37,9 +37,9 @@ end
 
 get '/display/result/:price' do
   price = params[:price]
+  DisplayService.show_price price
 end
 
 get '/display/hello' do
-  DisplayService.hello_string
-
+  DisplayService.show_hello
 end
