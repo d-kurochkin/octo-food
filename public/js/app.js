@@ -90,6 +90,7 @@ function sendOrder(){
         if (data == '0') {
             alert('Заказ на сумму '+total_price+' оплачен.');
             emptyOrder();
+            loadPage("M",0);
         }
     });
 }
