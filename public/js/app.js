@@ -47,6 +47,8 @@ function updateTotalPrice() {
         total += quantity * price;
     });
     $('#total-price').text('Заказ: '+total+' тг.');
+
+    $.get('/display/price/'+total);
 }
 
 function removeItem(code) {
