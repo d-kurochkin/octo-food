@@ -5,6 +5,7 @@ require 'json'
 
 require './services/article_service'
 require './services/order_service'
+require './services/display_service'
 
 register Sinatra::Reloader
 set :bind, '0.0.0.0'
@@ -32,4 +33,13 @@ end
 post '/order' do
   OrderService.process params
   '0'
+end
+
+get '/display/result/:price' do
+  price = params[:price]
+end
+
+get '/display/hello' do
+  DisplayService.hello_string
+
 end
