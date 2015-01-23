@@ -32,7 +32,7 @@ CODE_TABLE_RU = {
     'Э' => 0x9D,
     'Ю' => 0x9E,
     'Я' => 0x9F,
-    'a' => 0xA0,
+    'а' => 0xA0,
     'б' => 0xA1,
     'в' => 0xA2,
     'г' => 0xA3,
@@ -82,14 +82,25 @@ CODE_TABLE_RU = {
     'Һ' => 0xF7,
     'һ' => 0xF7,
     'І' => 0x49,
-    'i' => 0x69
+    'i' => 0x69,
+    "\n" => 0x0A,
+    "\r" => 0x0D,
 }
 
 
 class DisplayService
-    def self.code_string string
-        string.split('').map {|char| CODE_TABLE_RU[char]}
+  def self.code_string string
+    string.split('').map do |char|
+      CODE_TABLE_RU.has_key?(char) ? CODE_TABLE_RU[char] : char.unpack('c')[0]
     end
-end
+  end
 
-puts DisplayService.code_string( 'привет').inspect
+  def self.hello_string
+    DisplayService.code_string 'Добро пожаловать'
+  end
+
+  def self.result_string price
+    DisplayService.code_string("Приятного аппетита\n\rИтого: #{price} тг.")
+  end
+
+end
