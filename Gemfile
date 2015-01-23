@@ -12,3 +12,4 @@ gem 'gyoku'
 gem 'sequel'
 gem 'sqlite3'
 
+gem 'serialport'
