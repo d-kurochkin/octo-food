@@ -48,7 +48,7 @@ function updateTotalPrice() {
     });
     $('#total-price').text('Заказ: '+total+' тг.');
 
-    $.get('/display/price/'+total);
+    //$.get('/display/price/'+total);
 }
 
 function removeItem(code) {
@@ -100,10 +100,11 @@ function sendOrder(){
 function emptyOrder() {
     $('#articles-tbody').empty();
     updateTotalPrice();
-    $.get('/display/hello');
+    //$.get('/display/hello');
 }
 
 $(document).ready(function () {
-    $.get('/display/hello');
+    //$.get('/display/hello');
+    $('#paymentModal').modal('show');
     $("#articles-content").load('/articles/M.0');
 });
