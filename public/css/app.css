@@ -28,7 +28,7 @@
 }
 
 .order-panel {
-    height: 650px !important;
+    height: 730px !important;
 }
 
 .panel-body {
@@ -41,7 +41,7 @@
 }
 
 .order-tbody {
-    height: 500px;
+    height: 600px;
     overflow: auto;
     display: block;
 }

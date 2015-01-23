@@ -69,16 +69,20 @@ function removeItem(code) {
 }
 
 function sendOrder(){
+    var total_price = 0;
     var order = {
         timestamp: new Date().getTime(),
         items: {}
     };
+
     $('#articles-tbody').find('tr').each(function () {
         var item = $(this);
 
         var code = item.attr('code');
         var quantity = parseInt(item.attr('quantity'));
         var price = parseInt(item.attr('price'));
+
+        total_price += price * quantity;
 
         order.items[code] = {
             quantity: quantity,
@@ -87,8 +91,11 @@ function sendOrder(){
     });
 
     $.post('/order', order, function(data){
-        alert('Результат запроса: '+data);
-        emptyOrder();
+        if (data == '0') {
+            alert('Заказ на сумму '+total_price+' оплачен.');
+            emptyOrder();
+        }
+
     })
 
 }

@@ -31,5 +31,5 @@ end
 
 post '/order' do
   OrderService.process params
-  'обработано'
+  '0'
 end
