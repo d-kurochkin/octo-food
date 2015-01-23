@@ -35,7 +35,7 @@ post '/order' do
   '0'
 end
 
-get '/display/result/:price' do
+get '/display/price/:price' do
   price = params[:price]
   DisplayService.show_price price
 end

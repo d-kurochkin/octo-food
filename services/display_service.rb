@@ -111,7 +111,7 @@ class DisplayService
 
   def self.write string
     if DEBUG
-      puts string
+      puts string.inspect
     else
       port = SerialPort.new '/dev/ttyS0', 9600
       port.write [0x0C].pack('C*')

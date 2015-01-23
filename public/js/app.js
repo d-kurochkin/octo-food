@@ -97,10 +97,11 @@ function sendOrder(){
 
 function emptyOrder() {
     $('#articles-tbody').empty();
-
     updateTotalPrice();
+    $.get('/display/hello');
 }
 
 $(document).ready(function () {
+    $.get('/display/hello');
     $("#articles-content").load('/articles/M.0');
 });
