@@ -1,4 +1,4 @@
-<div id="paymentModal" class="modal fade payment-modal-lg" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel" aria-hidden="true">
+<div id="paymentModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -8,88 +8,126 @@
       </div>
 
       <div class="modal-body">
-        <table>
-          <tr>
-            <td>
-              <button type="button" class="btn btn-lg btn-default btn-num">7</button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-lg btn-default btn-num">8</button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-lg btn-default btn-num">9</button>
-            </td>
+        <div id="payment-info">
 
-            <td>
-              <button type="button" class="btn btn-lg btn-default btn-num">
-                <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-              </button>
-            </td>
-          </tr>
+          <table>
+            <tr>
+              <td>Игого:</td>
+              <td>
+                <input type="text" class="form-control" id="total">
+              </td>
+            </tr>
 
-          <tr>
-            <td>
-              <button type="button" class="btn btn-lg btn-default btn-num">4</button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-lg btn-default btn-num">5</button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-lg btn-default btn-num">6</button>
-            </td>
+            <tr>
+              <td>Внесено:</td>
+              <td>
+                <input type="text" class="form-control" id="charge">
+              </td>
+            </tr>
 
-            <td>
-              <button type="button" class="btn btn-lg btn-default btn-num">
-                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-              </button>
-            </td>
-          </tr>
+            <tr>
+              <td>Сдача:</td>
+              <td>
+                <input type="text" class="form-control" id="change">
+              </td>
+            </tr>
+          </table>
+        </div>
 
-          <tr>
-            <td>
-              <button type="button" class="btn btn-lg btn-default btn-num">1</button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-lg btn-default btn-num">2</button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-lg btn-default btn-num">3</button>
-            </td>
+        <div>
+          <table>
+            <tr>
+              <td>
+                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNumber(7);">7</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNumber(8);">8</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNumber(9);">9</button>
+              </td>
 
-            <td>
-              <button type="button" class="btn btn-lg btn-default btn-num">1000</button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-lg btn-default btn-num">2000</button>
-            </td>
-          </tr>
+              <td>
+                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNote(10000);">10000</button>
+              </td>
 
-          <tr>
-            <td>
-              <button type="button" class="btn btn-lg btn-default btn-num">0</button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-lg btn-default btn-num">00</button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-lg btn-default btn-num">000</button>
-            </td>
+              <td>
+                <button type="button" class="btn btn-lg btn-default btn-num" onclick="clearNumber();">
+                  <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+                </button>
+              </td>
+            </tr>
 
-            <td>
-              <button type="button" class="btn btn-lg btn-default btn-num">200</button>
-            </td>
-            <td>
-              <button type="button" class="btn btn-lg btn-default btn-num">500</button>
-            </td>
-          </tr>
-        </table>
+            <tr>
+              <td>
+                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNumber(4);">4</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNumber(5);">5</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNumber(6);">6</button>
+              </td>
+
+              <td>
+                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNote(5000);">5000</button>
+              </td>
+
+              <td>
+                <button type="button" class="btn btn-lg btn-default btn-num" onclick="clearCharge();">
+                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNumber(1);">1</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNumber(2);">2</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNumber(3);">3</button>
+              </td>
+
+              <td>
+                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNote(1000);">1000</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNote(2000);">2000</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNumber(0);">0</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNumber(00);">00</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNumber(000);">000</button>
+              </td>
+
+              <td>
+                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNote(200);">200</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNote(500);">500</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="5">
+                <button type="button" class="btn btn-stretched btn-success">Оплата</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+
       </div>
 
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-lg btn-danger pull-left" data-dismiss="modal">Отмена</button>
-        <button type="button" class="btn btn-lg btn-success pull-right">Оплата</button>
-      </div>
     </div>
   </div>
 </div>
