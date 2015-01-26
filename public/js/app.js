@@ -66,7 +66,7 @@ function removeItem(code) {
     updateTotalPrice();
 }
 
-function sendOrder(){
+function getOrder() {
     var total_price = 0;
     var order = {
         timestamp: new Date().getTime(),
@@ -88,6 +88,22 @@ function sendOrder(){
         }
     });
 
+    order['total'] = total_price;
+
+    return order;
+}
+
+function showCharge() {
+
+}
+
+function payOrder() {
+    $('#paymentModal').modal('show');
+}
+
+function sendOrder(){
+
+
     $.post('/order', order, function(data){
         if (data == '0') {
             alert('Заказ на сумму '+total_price+' оплачен.');
@@ -105,6 +121,5 @@ function emptyOrder() {
 
 $(document).ready(function () {
     //$.get('/display/hello');
-    $('#paymentModal').modal('show');
     $("#articles-content").load('/articles/M.0');
 });
