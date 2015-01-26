@@ -120,6 +120,7 @@ function emptyOrder() {
 }
 
 $(document).ready(function () {
+    $('#paymentModal').modal('show');
     //$.get('/display/hello');
     $("#articles-content").load('/articles/M.0');
 });
