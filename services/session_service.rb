@@ -47,8 +47,7 @@ class SessionService
     session = File.open(source_path, 'rb') { |f| f.read }
 
     time = Time.new.strftime '%Y%m%d%H%M%S'
-    session = session + "\n" + time
-    File.open(target_path, 'wb') { |f| f.write session }
+    File.open(target_path, 'w+') { |f| f.write time }
 
     #Удаление старой сессии
     File.delete source_path

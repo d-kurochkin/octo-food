@@ -73,3 +73,14 @@
     top: 40%;
     left: 30%;
 }
+#close-session-btn {
+    width: 400px;
+    height: 100px;
+    margin: 15px;
+}
+
+#sessionInfo {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+}

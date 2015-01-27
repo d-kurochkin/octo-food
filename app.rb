@@ -27,17 +27,14 @@ get '/session/start' do
   redirect to ''
 end
 
-get '/session/end' do
-  'Hello World'
+get '/session/info' do
+  @session = SessionService.get_current
+  erb :session_info
 end
 
 get '/session/close' do
   SessionService.close if SessionService.exist?
   redirect to ''
-end
-
-get '/session' do
-  'Hello World'
 end
 
 get '/articles/*.*' do |category, page|
