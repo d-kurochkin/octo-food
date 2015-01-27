@@ -104,6 +104,12 @@ function showPaymentInfo() {
   } else {
     $('#change').val(0);
   }
+
+  if (charge>0 && charge>=order.total && order.total>0) {
+    $('#payButton').removeClass('disabled');
+  } else {
+    $('#payButton').addClass('disabled');
+  }
 }
 
 function payOrder() {
