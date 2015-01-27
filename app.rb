@@ -6,6 +6,7 @@ require 'json'
 require './services/article_service'
 require './services/order_service'
 require './services/display_service'
+require './services/session_service'
 
 register Sinatra::Reloader
 set :bind, '0.0.0.0'
@@ -17,8 +18,20 @@ get '/' do
   erb :index
 end
 
-get '/new' do
-  "Hello World"
+get '/session/start' do
+  'Hello World'
+end
+
+get '/session/end' do
+  'Hello World'
+end
+
+get '/session/close' do
+  'Hello World'
+end
+
+get '/session' do
+  'Hello World'
 end
 
 get '/articles/*.*' do |category, page|
