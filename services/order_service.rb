@@ -1,11 +1,14 @@
 require 'gyoku'
+require './services/session_service'
 
 class OrderService
   def self.process params
     timestamp = params[:timestamp]
-    xml = Gyoku.xml(params)
-    path = "./data/order_#{timestamp}.ekz"
+    session = SessionService.get_current
+    path = "./data/#{session[:id]}/order_#{timestamp}.ekz"
 
-    File.write(path, xml)
+    File.write path, Gyoku.xml(params)
+
+    SessionService.update params['total'].to_i
   end
 end
