@@ -17,6 +17,10 @@ get '/' do
   erb :index
 end
 
+get '/new' do
+  "Hello World"
+end
+
 get '/articles/*.*' do |category, page|
   @page = page.to_i
   @count = ArticleService.get_count category
