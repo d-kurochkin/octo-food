@@ -8,6 +8,10 @@ require './services/order_service'
 require './services/display_service'
 require './services/session_service'
 
+DATA_PATH = './data/'
+SESSION_FILE = 'current_session.ekz'
+
+
 register Sinatra::Reloader
 set :bind, '0.0.0.0'
 
