@@ -116,13 +116,16 @@ function payOrder() {
 }
 
 function sendOrder() {
-  //$.post('/order', order, function(data){
-  //    if (data == '0') {
-  //        alert('Заказ на сумму '+total_price+' оплачен.');
-  //        emptyOrder();
-  //        loadPage("M",0);
-  //    }
-  //});
+  var order = getOrder();
+  order.charge = $('#charge').val();
+
+  $.post('/order', order, function(data){
+      if (data == '0') {
+          alert('Заказ на сумму '+order.total+' оплачен.');
+          emptyOrder();
+          loadPage("M",0);
+      }
+  });
 }
 
 function emptyOrder() {
