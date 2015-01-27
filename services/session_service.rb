@@ -1,4 +1,6 @@
-DATA_PATH = './data/'
+require 'fileutils'
+
+DATA_PATH = '/home/pengo/.work/octo-food/data/'
 SESSION_FILE = 'current_session.ekz'
 
 class SessionService
@@ -6,8 +8,12 @@ class SessionService
     path = DATA_PATH + SESSION_FILE
 
     File.open path, 'r' do |file|
-      file.readline
+      @id = file.readline.gsub("\n", '')
+      @total = file.readline.gsub("\n", '').to_i
+
     end
+
+    {id: @id, total: @total}
   end
 
   def self.exist?
@@ -26,11 +32,25 @@ class SessionService
     Dir.mkdir DATA_PATH + time
   end
 
-  def self.close
-    source_path = DATA_PATH + SESSION_FILE
+  def self.update order_total
+    puts order_total.inspect
+    session = SessionService.get_current
+    session[:total] = session[:total] + order_total
 
-    File.rename source_path, target_path
+    File.open(DATA_PATH + SESSION_FILE, 'wb') { |f| f.write session }
+  end
+
+  def self.close
+    current_session = SessionService.get_current[:id]
+    source_path = DATA_PATH + SESSION_FILE
+    target_path = DATA_PATH + current_session + '/session.ekz'
+    session = File.open(source_path, 'rb') { |f| f.read }
+
+    time = Time.new.strftime '%Y%m%d%H%M%S'
+    session = session + '\n' + time
+    File.open(target_path, 'wb') { |f| f.write session }
+
+    #Удаление старой сессии
+    File.delete source_path
   end
 end
-
-SessionService.start
