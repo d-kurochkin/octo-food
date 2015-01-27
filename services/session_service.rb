@@ -1,7 +1,5 @@
 require 'fileutils'
 
-DATA_PATH = '/home/pengo/.work/octo-food/data/'
-SESSION_FILE = 'current_session.ekz'
 
 class SessionService
   def self.get_current
