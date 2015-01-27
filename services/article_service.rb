@@ -10,13 +10,11 @@ MAPPINGS = {
     '@PRICE' => 'price'
 }
 
-IMPORT_PATH = 'menu.ekz'
-
 PAGE_LIMIT = 15
 
 class ArticleService
   def self.load
-    file = File.new IMPORT_PATH
+    file = File.new DATA_PATH + 'menu.ekz'
     parser = Nori.new
 
     items = parser.parse(file.read)['N']['NOM']
