@@ -15,7 +15,11 @@ set :bind, '0.0.0.0'
 ArticleService.import
 
 get '/' do
-  erb :index
+  if SessionService.exist?
+    erb :index
+  else
+    erb :session_new
+  end
 end
 
 get '/session/start' do

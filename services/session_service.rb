@@ -37,7 +37,7 @@ class SessionService
     session = SessionService.get_current
     session[:total] = session[:total] + order_total
 
-    File.open(DATA_PATH + SESSION_FILE, 'wb') { |f| f.write session }
+    File.open(DATA_PATH + SESSION_FILE, 'wb') { |f| f.write "#{session[:id]}\n#{session[:total]}" }
   end
 
   def self.close
@@ -47,7 +47,7 @@ class SessionService
     session = File.open(source_path, 'rb') { |f| f.read }
 
     time = Time.new.strftime '%Y%m%d%H%M%S'
-    session = session + '\n' + time
+    session = session + "\n" + time
     File.open(target_path, 'wb') { |f| f.write session }
 
     #Удаление старой сессии
