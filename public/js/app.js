@@ -127,15 +127,21 @@ function sendOrder() {
 
   $.post('/order', order, function(data){
       if (data == '0') {
-          alert('Заказ на сумму '+order.total+' оплачен.');
           emptyOrder();
-          loadPage("M",0);
+          $('#paymentModal').modal('hide');
+
+        loadPage("M",0);
       }
   });
 }
 
 function emptyOrder() {
   $('#articles-tbody').empty();
+
+  $('#total').val(0);
+  $('#charge').val(0);
+  $('#change').val(0);
+
   updateTotalPrice();
   //$.get('/display/hello');
 }
