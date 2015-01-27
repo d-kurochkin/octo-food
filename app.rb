@@ -53,6 +53,10 @@ get '/articles/*.*' do |category, page|
   end
 end
 
+get '/reload' do
+  ArticleService.import
+  redirect to'/'
+end
 
 post '/order' do
   OrderService.process params
