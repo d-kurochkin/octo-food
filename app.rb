@@ -28,7 +28,8 @@ get '/session/end' do
 end
 
 get '/session/close' do
-  'Hello World'
+  SessionService.close if SessionService.exist?
+  redirect to ''
 end
 
 get '/session' do
