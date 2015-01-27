@@ -19,7 +19,8 @@ get '/' do
 end
 
 get '/session/start' do
-  'Hello World'
+  SessionService.start unless SessionService.exist?
+  redirect to ''
 end
 
 get '/session/end' do

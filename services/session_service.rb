@@ -1,4 +1,4 @@
-DATA_PATH = '../data/'
+DATA_PATH = './data/'
 SESSION_FILE = 'current_session.ekz'
 
 class SessionService
@@ -34,4 +34,3 @@ class SessionService
 end
 
 SessionService.start
-puts SessionService.get_current
