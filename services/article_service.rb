@@ -31,6 +31,7 @@ class ArticleService
   end
 
   def self.import
+    Article.all.each { |item| item.delete }
     ArticleService.load.each { |article| Article.insert(article) }
     puts "Импортировано записей: #{Article.count}"
   end
