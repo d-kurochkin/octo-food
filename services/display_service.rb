@@ -89,7 +89,6 @@ CODE_TABLE_RU = {
   "\r" => 0x0D,
 }
 
-DEBUG = true
 
 class DisplayService
   def self.show_hello

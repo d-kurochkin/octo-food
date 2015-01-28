@@ -48,7 +48,7 @@ function updateTotalPrice() {
   });
   $('#total-price').text('Заказ: ' + total + ' тг.');
 
-  //$.get('/display/price/'+total);
+  $.get('/display/price/'+total);
 }
 
 function removeItem(code) {
@@ -143,7 +143,7 @@ function emptyOrder() {
   $('#change').val(0);
 
   updateTotalPrice();
-  //$.get('/display/hello');
+  $.get('/display/hello');
 }
 
 function addNumber(n) {
@@ -168,7 +168,6 @@ function addNote(n) {
 
 function clearNumber(){
   var charge = $('#charge').val();
-
   charge = charge.substring(0, charge.length - 1);
 
   $('#charge').val(charge.length ? charge : 0);
@@ -183,7 +182,7 @@ function clearCharge(){
 
 $(document).ready(function () {
   //$('#paymentModal').modal('show');
-  //$.get('/display/hello');
+  $.get('/display/hello');
   $("#articles-content").load('/articles/M.0');
 });
 
