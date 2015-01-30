@@ -84,3 +84,7 @@ td {
     top: 30%;
     left: 30%;
 }
+
+.modal-content {
+    width: 500px;
+}
