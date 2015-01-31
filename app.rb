@@ -12,8 +12,8 @@ DATA_PATH = './data/'
 SESSION_FILE = 'current_session.ekz'
 DEBUG = false
 
-register Sinatra::Reloader
-set :bind, '0.0.0.0'
+# register Sinatra::Reloader
+# set :bind, '0.0.0.0'
 
 # Загружаем данные из файла
 ArticleService.import
