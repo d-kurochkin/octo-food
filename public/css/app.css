@@ -88,3 +88,12 @@ td {
 .modal-content {
     width: 500px;
 }
+
+#payment-info {
+    font-size: x-large;
+}
+
+
+#payment-info input {
+    font-size: x-large;
+}
