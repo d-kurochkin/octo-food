@@ -63,11 +63,11 @@ post '/order' do
   '0'
 end
 
-get '/display/price/:price' do
-  price = params[:price]
-  DisplayService.show_price price
-end
-
-get '/display/hello' do
-  DisplayService.show_hello
-end
+# get '/display/price/:price' do
+#   price = params[:price]
+#   DisplayService.show_price price
+# end
+#
+# get '/display/hello' do
+#   DisplayService.show_hello
+# end
