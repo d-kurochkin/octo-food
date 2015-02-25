@@ -2,8 +2,8 @@
   <%= erb :nav_panel, locals: {category: category, parent: parent, page: page, total: total} %>
 </div>
 
-<div class="row">
-  <table class="table">
+<div class="row" style="height: 630px;">
+  <table class="table" >
     <% articles.each_with_index do |item, index| %>
         <%= '<tr>' if index.modulo(4) == 0 %>
 
