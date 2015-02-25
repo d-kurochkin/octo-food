@@ -20,7 +20,7 @@ td {
     width: 100%;
     white-space: normal;
     height: 100px;
-    margin-bottom: 5px;
+    margin: 5px;
 }
 
 .btn-stretched h5 {
@@ -51,11 +51,6 @@ td {
     margin: 5px;
     width: 72px;
     height: 56px;
-}
-
-.btn-stretched {
-    margin: 5px;
-    width: 100%;
 }
 
 .modal-content {
