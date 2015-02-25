@@ -20,7 +20,7 @@ function addNewArticle(name, code, price) {
 
   var row = article(code);
   row.append('<td class="col-sm-1">' +
-  '<button type="button" class="btn btn-xs btn-danger" onclick="removeItem(\'' + code + '\')">' +
+  '<button type="button" class="btn btn-sm btn-danger" onclick="removeItem(\'' + code + '\')">' +
   '<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>' +
   '</button </td>');
 
