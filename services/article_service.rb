@@ -10,7 +10,7 @@ MAPPINGS = {
     '@PRICE' => 'price'
 }
 
-PAGE_LIMIT = 15
+PAGE_LIMIT = 20
 
 class ArticleService
   def self.load

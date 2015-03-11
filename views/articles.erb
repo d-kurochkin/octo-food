@@ -2,17 +2,17 @@
   <%= erb :nav_panel, locals: {category: category, parent: parent, page: page, total: total} %>
 </div>
 
-<div class="row">
-  <table class="table">
+<div class="row" style="height: 630px;">
+  <table class="table" >
     <% articles.each_with_index do |item, index| %>
-        <%= '<tr>' if index.modulo(3) == 0 %>
+        <%= '<tr>' if index.modulo(4) == 0 %>
 
         <td>
           <%= erb :category, locals: item if item[:is_group] == 1 %>
           <%= erb :item, locals: item if item[:is_group] == 0 %>
         </td>
 
-        <%= '</tr>' if index.modulo(3) == 2 %>
+        <%= '</tr>' if index.modulo(4) == 3 %>
     <% end %>
   </table>
 </div>

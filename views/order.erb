@@ -1,28 +1,57 @@
-<div class="panel panel-default order-panel">
-  <div class="panel-heading">
-    <h4 id="total-price">
-        Заказ: 0 тг.
-    </h4>
-  </div>
+<script type="text/jsx">
+    var OrderButtonsBox = React.createClass({
+        render: function () {
+            return (
+                    <div className="nav-panel">
+                        <a href="#" className="btn btn-lg btn-info pull-left">Очистить</a>
+                        <a href="#" className="btn btn-lg btn-success pull-right">Оплата</a>
+                    </div>
+            );
+        }
+    });
 
-  <div class="panel-body">
-    <table class="table table-condensed order-tbody">
-      <thead>
-      <th class="col-sm-2"></th>
-      <th class="col-sm-7">Наименование</th>
-      <th class="col-sm-3">Стоимость</th>
-      </thead>
-      <tbody id="articles-tbody">
+    var OrderTableBox = React.createClass({
+        render: function () {
+            return (
+                    <div className="panel-body">
+                        <table className="table table-condensed order-tbody">
+                            <thead>
+                                <th className="col-sm-2"></th>
+                                <th className="col-sm-7">Наименование</th>
+                                <th className="col-sm-3">Стоимость</th>
+                            </thead>
+                            <tbody id="articles-tbody">
 
-      </tbody>
-    </table>
+                            </tbody>
+                        </table>
+                    </div>
+            )
+        }
+    });
 
-    <div class="nav-panel">
-      <a href="#" class="btn btn-lg btn-info pull-left" onclick="emptyOrder();">Очистить</a>
-      <a href="#" class="btn btn-lg btn-success pull-right" onclick="payOrder();">Оплата</a>
-    </div>
+    var orderPanel = (
+            <div className="panel panel-default order-panel">
+                <div className="panel-heading">
+                    <h4 id="total-price">
+                        Заказ: 0 тг.
+                    </h4>
+                </div>
 
-  </div>
+                <OrderTableBox />
+                <OrderButtonsBox />
+
+            </div>
+    );
+    var element = document.getElementById('order-content');
+
+    React.render(orderPanel, element)
+</script>
 
 
-</div>
+
+
+
+
+
+
+

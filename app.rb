@@ -19,6 +19,7 @@ DEBUG = false
 ArticleService.import
 
 get '/' do
+  puts 'ok'
   if SessionService.exist?
     erb :index
   else
@@ -55,7 +56,7 @@ end
 
 get '/reload' do
   ArticleService.import
-  redirect to'/'
+  redirect to '/'
 end
 
 post '/order' do
@@ -63,11 +64,12 @@ post '/order' do
   '0'
 end
 
-get '/display/price/:price' do
-  price = params[:price]
-  DisplayService.show_price price
-end
 
-get '/display/hello' do
-  DisplayService.show_hello
-end
+# get '/display/price/:price' do
+#   price = params[:price]
+#   DisplayService.show_price price
+# end
+#
+# get '/display/hello' do
+#   DisplayService.show_hello
+# end
