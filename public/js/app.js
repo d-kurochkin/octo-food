@@ -8,12 +8,12 @@ function loadPage(category, page) {
 
 function addArticle(name, code, price) {
   if (article(code).length == 0) {
-    addNewArticle(name, code, price)
+    console.log(name, code, price)
   } else {
-    updateArticle(name, code, price);
+    console.log(name, code, price);
   }
-  updateTotalPrice();
 }
+
 
 
 
