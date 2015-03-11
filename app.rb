@@ -19,6 +19,7 @@ set :bind, '0.0.0.0'
 ArticleService.import
 
 get '/' do
+  puts 'ok'
   if SessionService.exist?
     erb :index
   else
@@ -55,13 +56,14 @@ end
 
 get '/reload' do
   ArticleService.import
-  redirect to'/'
+  redirect to '/'
 end
 
 post '/order' do
   OrderService.process params
   '0'
 end
+
 
 # get '/display/price/:price' do
 #   price = params[:price]
