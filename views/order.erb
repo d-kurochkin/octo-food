@@ -12,16 +12,18 @@
 
     var OrderTableBox = React.createClass({
         render: function () {
-            var tableItems = this.props.data.map(function (item) {
-                console.log(item);
-                return (
-                        <tr>
-                            <td>[-]</td>
-                            <td>{item.name}</td>
-                            <td>1<b>x</b>{item.price} тг.</td>
-                        </tr>
-                );
-            });
+            var tableItems =  ""
+            console.log(this.props.data)
+//            var tableItems = this.props.data.map(function (item) {
+//                console.log(item);
+//                return (
+//                        <tr>
+//                            <td>[-]</td>
+//                            <td>{item.name}</td>
+//                            <td>1<b>x</b>{item.price} тг.</td>
+//                        </tr>
+//                );
+//            });
 
 
             return (
