@@ -23,7 +23,7 @@ get '/' do
   if SessionService.exist?
     erb :index
   else
-    erb :session_new
+    erb :session_new  
   end
 end
 

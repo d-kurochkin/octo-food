@@ -1,10 +1,22 @@
 <script type="text/jsx">
     var OrderButtonsBox = React.createClass({
+        payButtonHandler: function () {
+            console.log("pay")
+        },
+
+        clearButtonHandler: function () {
+            emptyOrderList();
+        },
+
         render: function () {
             return (
                     <div className="nav-panel">
-                        <a href="#" className="btn btn-lg btn-info pull-left">Очистить</a>
-                        <a href="#" className="btn btn-lg btn-success pull-right">Оплата</a>
+                        <a href="#" className="btn btn-lg btn-info pull-left" onClick={this.clearButtonHandler}>
+                            Очистить
+                        </a>
+                        <a href="#" className="btn btn-lg btn-success pull-right" onClick={this.payButtonHandler}>
+                            Оплата
+                        </a>
                     </div>
             );
         }
