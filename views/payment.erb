@@ -1,27 +1,33 @@
 <script type="text/jsx">
   var PaymentInfoBox = React.createClass({
+
+
     render: function () {
+      var total = this.props.data.total;
+      var charge = this.props.data.charge;
+      var change = charge - total;
+
       return (
         <div id="payment-info">
           <table>
             <tr>
               <td>Итого:</td>
               <td>
-                <input type="text" className="form-control" id="total"/>
+                <input type="text" className="form-control" id="total" value={total}/>
               </td>
             </tr>
 
             <tr>
               <td>Внесено:</td>
               <td>
-                <input type="text" className="form-control" id="charge"/>
+                <input type="text" className="form-control" id="charge" value={charge}/>
               </td>
             </tr>
 
             <tr>
               <td>Сдача:</td>
               <td>
-                <input type="text" className="form-control" id="change"/>
+                <input type="text" className="form-control" id="change" value={change > 0 ? change : 0}/>
               </td>
             </tr>
           </table>
@@ -51,7 +57,7 @@
               </div>
 
               <div className="modal-body">
-                <PaymentInfoBox />
+                <PaymentInfoBox data={this.state}/>
               </div>
             </div>
           </div>
