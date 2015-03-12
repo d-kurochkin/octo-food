@@ -92,6 +92,11 @@
 
   var PaymentNumpad = React.createClass({
     render: function () {
+      var total = this.props.data.total;
+      var charge = this.props.data.charge;
+      var disabled = charge >= total ? '' : 'disabled';
+      var buttonClass = "btn btn-stretched btn-success " + disabled;
+
       return (
         <div>
           <table>
@@ -131,7 +136,7 @@
 
           </table>
 
-          <button id="payButton" type="button" className="btn btn-stretched btn-success disabled" >Оплата</button>
+          <button id="payButton" type="button" className={buttonClass} onClick={sendOrder}>Оплата</button>
 
         </div>
       )
@@ -160,9 +165,9 @@
               </div>
 
               <div className="modal-body">
-                <PaymentInfoBox data={this.state}/>
+                <PaymentInfoBox data={this.state} />
 
-                <PaymentNumpad />
+                <PaymentNumpad data={this.state} />
 
               </div>
             </div>
