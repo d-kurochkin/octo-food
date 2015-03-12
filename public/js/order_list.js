@@ -17,6 +17,8 @@ function updateOrderListState(order_list){
 }
 
 function getOrderListTotal(order_list) {
+    order_list = order_list || getOrderList();
+
     var sum_items = _.mapValues(order_list, function (item) {
         return item.price * item.count;
     });
