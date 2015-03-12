@@ -10,8 +10,37 @@
         }
     });
 
+    var OrderItemButton = React.createClass({
+        handleClick: function (event) {
+            removeArticle(this.props.data);
+        },
+
+        render: function () {
+            return <button type="button" className="btn btn-danger remove-item-btn" onClick={this.handleClick}>
+                <span className="glyphicon glyphicon-minus" aria-hidden="true"></span>
+            </button>
+        }
+    });
+
     var OrderTableBox = React.createClass({
         render: function () {
+            var tableItems = _.mapValues(this.props.data, function (item) {
+                return (
+                        <tr>
+                            <td>
+                                <OrderItemButton data={item.code}/>
+                            </td>
+                            <td>{item.name}</td>
+                            <td>
+                                {item.count}
+                                <b>x</b>
+                                {item.price} тг.
+                            </td>
+                        </tr>
+                );
+            });
+
+
             return (
                     <div className="panel-body">
                         <table className="table table-condensed order-tbody">
@@ -21,7 +50,7 @@
                                 <th className="col-sm-3">Стоимость</th>
                             </thead>
                             <tbody id="articles-tbody">
-
+                                {tableItems}
                             </tbody>
                         </table>
                     </div>
@@ -29,22 +58,41 @@
         }
     });
 
-    var orderPanel = (
-            <div className="panel panel-default order-panel">
-                <div className="panel-heading">
-                    <h4 id="total-price">
-                        Заказ: 0 тг.
-                    </h4>
-                </div>
+    var OrderHeaderBox = React.createClass({
+        render: function () {
+            return (
+                    <div className="panel-heading">
+                        <h4 id="total-price">
+                            Заказ: {this.props.data} тг.
+                        </h4>
+                    </div>
+            )
+        }
+    });
 
-                <OrderTableBox />
-                <OrderButtonsBox />
+    var OrderPanel = React.createClass({
+        getInitialState: function () {
+            return {order_list: getOrderList()};
+        },
 
-            </div>
-    );
-    var element = document.getElementById('order-content');
+        render: function () {
+            var sum_items = _.mapValues(this.state.order_list, function (item) {
+                return item.price * item.count;
+            });
+            var sum = _.sum(sum_items);
 
-    React.render(orderPanel, element)
+
+            return (
+                    <div className="panel panel-default order-panel">
+                        <OrderHeaderBox data={sum}/>
+                        <OrderTableBox data={this.state.order_list}/>
+                        <OrderButtonsBox />
+                    </div>
+            )
+        }
+    });
+
+    var mountedOrderPanel = React.render(<OrderPanel />, document.getElementById('order-content'));
 </script>
 
 
