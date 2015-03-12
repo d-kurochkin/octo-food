@@ -1,6 +1,7 @@
 <script type="text/jsx">
   var OrderButtonsBox = React.createClass({
     payButtonHandler: function () {
+      emptyCharge();
       $('#paymentModal').modal('show');
     },
 
@@ -88,8 +89,6 @@
     },
 
     render: function () {
-
-
       return (
         <div className="panel panel-default order-panel">
           <OrderHeaderBox data={getOrderListTotal(this.state.order_list)}/>
