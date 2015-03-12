@@ -4,11 +4,13 @@ function loadPage(category, page) {
 
 function sendOrder() {
   var order = {};
-  order.charge = $('#charge').val();
+  order.timestamp = new Date().getTime();
+  order.items  = getOrderList();
+  order.charge = getOrderListTotal();
 
   $.post('/order', order, function (data) {
     if (data == '0') {
-      emptyOrder();
+      emptyOrderList();
       $('#paymentModal').modal('hide');
 
       loadPage("M", 0);
