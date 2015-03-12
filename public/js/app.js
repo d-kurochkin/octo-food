@@ -1,9 +1,6 @@
-function loadPage(category, page) {
-    $("#articles-content").load('/articles/' + category + '.' + page);
-}
-
 function emptyOrderList() {
     localStorage.setItem('order_list', "{}");
+    updateOrderListState();
 }
 
 function getOrderList() {
@@ -12,6 +9,11 @@ function getOrderList() {
 
 function setOrderList(order_list) {
     localStorage.setItem('order_list', JSON.stringify(order_list));
+    updateOrderListState();
+}
+
+function updateOrderListState(){
+    mountedOrderPanel.setState({order_list: order_list});
 }
 
 function addArticle(name, code, price) {
@@ -28,7 +30,6 @@ function addArticle(name, code, price) {
         };
     }
 
-    mountedOrderPanel.setState({order_list: order_list});
     setOrderList(order_list);
 }
 
@@ -52,6 +53,10 @@ function addArticle(name, code, price) {
 //  }
 //}
 
+
+function loadPage(category, page) {
+    $("#articles-content").load('/articles/' + category + '.' + page);
+}
 
 function sendOrder() {
     var order = {};
