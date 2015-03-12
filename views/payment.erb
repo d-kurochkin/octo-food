@@ -1,7 +1,5 @@
 <script type="text/jsx">
   var PaymentInfoBox = React.createClass({
-
-
     render: function () {
       var total = this.props.data.total;
       var charge = this.props.data.charge;
@@ -43,10 +41,11 @@
         charge: 0
       }
     },
-    
+
     render: function () {
       return (
-        <div id="paymentModal" className="modal fade" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel" aria-hidden="true">
+        <div id="paymentModal" className="modal fade" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel"
+             aria-hidden="true">
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
