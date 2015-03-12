@@ -1,8 +1,10 @@
 <script type="text/jsx">
   var OrderButtonsBox = React.createClass({
     payButtonHandler: function () {
-      emptyCharge();
-      $('#paymentModal').modal('show');
+      if(getOrderListTotal() > 0) {
+        emptyCharge();
+        $('#paymentModal').modal('show');
+      }
     },
 
     clearButtonHandler: function () {
