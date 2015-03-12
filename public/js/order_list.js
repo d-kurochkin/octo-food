@@ -14,6 +14,7 @@ function setOrderList(order_list) {
 
 function updateOrderListState(order_list){
     mountedOrderPanel.setState({order_list: order_list});
+    mountedPaymentWindow.setState({total: getOrderListTotal()});
 }
 
 function getOrderListTotal(order_list) {
