@@ -2,10 +2,10 @@
     var OrderButtonsBox = React.createClass({
         render: function () {
             return (
-                    <div className="nav-panel">
-                        <a href="#" className="btn btn-lg btn-info pull-left">Очистить</a>
-                        <a href="#" className="btn btn-lg btn-success pull-right">Оплата</a>
-                    </div>
+                <div className="nav-panel">
+                    <a href="#" className="btn btn-lg btn-info pull-left">Очистить</a>
+                    <a href="#" className="btn btn-lg btn-success pull-right">Оплата</a>
+                </div>
             );
         }
     });
@@ -13,11 +13,11 @@
     var OrderTableItems = React.createClass({
         render: function () {
             return (
-                    <tr>
-                        <td>[-]</td>
-                        <td>Сосиська</td>
-                        <td>2250 тг.</td>
-                    </tr>
+                <tr>
+                    <td>[-]</td>
+                    <td>Сосиська</td>
+                    <td>2250 тг.</td>
+                </tr>
             )
         }
     });
@@ -25,18 +25,18 @@
     var OrderTableBox = React.createClass({
         render: function () {
             return (
-                    <div className="panel-body">
-                        <table className="table table-condensed order-tbody">
-                            <thead>
-                                <th className="col-sm-2"></th>
-                                <th className="col-sm-7">Наименование</th>
-                                <th className="col-sm-3">Стоимость</th>
-                            </thead>
-                            <tbody id="articles-tbody">
-                                <OrderTableItems data={3} />
-                            </tbody>
-                        </table>
-                    </div>
+                <div className="panel-body">
+                    <table className="table table-condensed order-tbody">
+                        <thead>
+                            <th className="col-sm-2"></th>
+                            <th className="col-sm-7">Наименование</th>
+                            <th className="col-sm-3">Стоимость</th>
+                        </thead>
+                        <tbody id="articles-tbody">
+                            <OrderTableItems />
+                        </tbody>
+                    </table>
+                </div>
             )
         }
     });
@@ -44,25 +44,33 @@
     var OrderHeaderBox = React.createClass({
         render: function () {
             return (
-                    <div className="panel-heading">
-                        <h4 id="total-price">
-                            Заказ: 0 тг.
-                        </h4>
-                    </div>
+                <div className="panel-heading">
+                    <h4 id="total-price">
+                        Заказ: {this.props.data} тг.
+                    </h4>
+                </div>
             )
         }
     });
 
-    var orderPanel = (
-            <div className="panel panel-default order-panel">
-                <OrderHeaderBox />
-                <OrderTableBox />
-                <OrderButtonsBox />
-            </div>
-    );
-    var element = document.getElementById('order-content');
+    var OrderPanel = React.createClass({
+        getInitialState: function () {
+            return {order_list: JSON.parse(localStorage.getItem('order_list')) || []};
+        },
 
-    React.render(orderPanel, element)
+        render: function () {
+            var sum = this.state.order_list.length;
+            return (
+                <div className="panel panel-default order-panel">
+                    <OrderHeaderBox data={sum}/>
+                    <OrderTableBox data={this.state.order_list} />
+                    <OrderButtonsBox />
+                </div>
+            )
+        }
+    });
+
+    var mountedOrderPanel = React.render(<OrderPanel />, document.getElementById('order-content'));
 </script>
 
 
