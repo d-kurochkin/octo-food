@@ -1,131 +1,51 @@
-<div id="paymentModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title text-center" id="exampleModalLabel">Оплата</h4>
-      </div>
+<script type="text/jsx">
+    var PaymentWindow = React.createClass({
+        render: function () {
+            return (
+                <div id="paymentModal" className="modal fade" tabindex="-1" role="dialog"
+                     aria-labelledby="paymentModalLabel" aria-hidden="true">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 className="modal-title text-center" id="exampleModalLabel">Оплата</h4>
+                            </div>
 
-      <div class="modal-body">
-        <div id="payment-info">
+                            <div className="modal-body">
+                                <div id="payment-info">
+                                    <table>
+                                        <tr>
+                                            <td>Итого:</td>
+                                            <td>
+                                                <input type="text" className="form-control" id="total"/>
+                                            </td>
+                                        </tr>
 
-          <table>
-            <tr>
-              <td>Игого:</td>
-              <td>
-                <input type="text" class="form-control" id="total">
-              </td>
-            </tr>
+                                        <tr>
+                                            <td>Внесено:</td>
+                                            <td>
+                                                <input type="text" className="form-control" id="charge"/>
+                                            </td>
+                                        </tr>
 
-            <tr>
-              <td>Внесено:</td>
-              <td>
-                <input type="text" class="form-control" id="charge">
-              </td>
-            </tr>
+                                        <tr>
+                                            <td>Сдача:</td>
+                                            <td>
+                                                <input type="text" className="form-control" id="change"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
+    });
 
-            <tr>
-              <td>Сдача:</td>
-              <td>
-                <input type="text" class="form-control" id="change">
-              </td>
-            </tr>
-          </table>
-        </div>
 
-        <div>
-          <table>
-            <tr>
-              <td>
-                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNumber(7);">7</button>
-              </td>
-              <td>
-                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNumber(8);">8</button>
-              </td>
-              <td>
-                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNumber(9);">9</button>
-              </td>
-
-              <td>
-                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNote(10000);">10000</button>
-              </td>
-
-              <td>
-                <button type="button" class="btn btn-lg btn-default btn-num" onclick="clearNumber();">
-                  <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-                </button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNumber(4);">4</button>
-              </td>
-              <td>
-                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNumber(5);">5</button>
-              </td>
-              <td>
-                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNumber(6);">6</button>
-              </td>
-
-              <td>
-                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNote(5000);">5000</button>
-              </td>
-
-              <td>
-                <button type="button" class="btn btn-lg btn-default btn-num" onclick="clearCharge();">
-                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                </button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNumber(1);">1</button>
-              </td>
-              <td>
-                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNumber(2);">2</button>
-              </td>
-              <td>
-                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNumber(3);">3</button>
-              </td>
-
-              <td>
-                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNote(1000);">1000</button>
-              </td>
-              <td>
-                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNote(2000);">2000</button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNumber(0);">0</button>
-              </td>
-              <td>
-                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNumber('00');">00</button>
-              </td>
-              <td>
-                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNumber('000');">000</button>
-              </td>
-
-              <td>
-                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNote(200);">200</button>
-              </td>
-              <td>
-                <button type="button" class="btn btn-lg btn-default btn-num" onclick="addNote(500);">500</button>
-              </td>
-            </tr>
-
-            <tr>
-              <td colspan="5">
-                <button id="payButton" type="button" class="btn btn-stretched btn-success disabled" onclick="sendOrder();">Оплата</button>
-              </td>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+    var mountedPaymentWindow = React.render(<PaymentWindow />, document.getElementById("payment-window"));
+</script>

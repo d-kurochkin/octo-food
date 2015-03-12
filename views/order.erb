@@ -1,7 +1,7 @@
 <script type="text/jsx">
     var OrderButtonsBox = React.createClass({
         payButtonHandler: function () {
-            console.log("pay")
+            $('#paymentModal').modal('show');
         },
 
         clearButtonHandler: function () {
@@ -88,15 +88,12 @@
         },
 
         render: function () {
-            var sum_items = _.mapValues(this.state.order_list, function (item) {
-                return item.price * item.count;
-            });
-            var sum = _.sum(sum_items);
+
 
 
             return (
                     <div className="panel panel-default order-panel">
-                        <OrderHeaderBox data={sum}/>
+                        <OrderHeaderBox data={getOrderListTotal(this.state.order_list)}/>
                         <OrderTableBox data={this.state.order_list}/>
                         <OrderButtonsBox />
                     </div>
