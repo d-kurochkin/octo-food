@@ -1,6 +1,6 @@
 function emptyOrderList() {
     localStorage.setItem('order_list', "{}");
-    updateOrderListState();
+    updateOrderListState({});
 }
 
 function getOrderList() {
@@ -9,10 +9,10 @@ function getOrderList() {
 
 function setOrderList(order_list) {
     localStorage.setItem('order_list', JSON.stringify(order_list));
-    updateOrderListState();
+    updateOrderListState(order_list);
 }
 
-function updateOrderListState(){
+function updateOrderListState(order_list){
     mountedOrderPanel.setState({order_list: order_list});
 }
 
@@ -28,6 +28,18 @@ function addArticle(name, code, price) {
             price: price,
             count: 1
         };
+    }
+
+    setOrderList(order_list);
+}
+
+function removeArticle(code) {
+    var order_list = getOrderList();
+
+    if (order_list[code] && order_list[code].count > 1) {
+        order_list[code].count -= 1;
+    } else {
+        order_list = _.omit(order_list, code);
     }
 
     setOrderList(order_list);

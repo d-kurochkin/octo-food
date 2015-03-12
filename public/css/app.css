@@ -27,6 +27,10 @@ td {
     margin-top: 0px;
 }
 
+.remove-item-btn {
+    width: 50px;
+}
+
 .order-panel {
     height: 730px !important;
 }
