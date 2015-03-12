@@ -1,51 +1,65 @@
 <script type="text/jsx">
-    var PaymentWindow = React.createClass({
-        render: function () {
-            return (
-                <div id="paymentModal" className="modal fade" tabindex="-1" role="dialog"
-                     aria-labelledby="paymentModalLabel" aria-hidden="true">
-                    <div className="modal-dialog">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <h4 className="modal-title text-center" id="exampleModalLabel">Оплата</h4>
-                            </div>
+  var PaymentInfoBox = React.createClass({
+    render: function () {
+      return (
+        <div id="payment-info">
+          <table>
+            <tr>
+              <td>Итого:</td>
+              <td>
+                <input type="text" className="form-control" id="total"/>
+              </td>
+            </tr>
 
-                            <div className="modal-body">
-                                <div id="payment-info">
-                                    <table>
-                                        <tr>
-                                            <td>Итого:</td>
-                                            <td>
-                                                <input type="text" className="form-control" id="total"/>
-                                            </td>
-                                        </tr>
+            <tr>
+              <td>Внесено:</td>
+              <td>
+                <input type="text" className="form-control" id="charge"/>
+              </td>
+            </tr>
 
-                                        <tr>
-                                            <td>Внесено:</td>
-                                            <td>
-                                                <input type="text" className="form-control" id="charge"/>
-                                            </td>
-                                        </tr>
+            <tr>
+              <td>Сдача:</td>
+              <td>
+                <input type="text" className="form-control" id="change"/>
+              </td>
+            </tr>
+          </table>
+        </div>
+      );
+    }
+  });
 
-                                        <tr>
-                                            <td>Сдача:</td>
-                                            <td>
-                                                <input type="text" className="form-control" id="change"/>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )
-        }
-    });
+  var PaymentWindow = React.createClass({
+    getInitialState: function () {
+      return {
+        total: getOrderListTotal(),
+        charge: 0
+      }
+    },
+    
+    render: function () {
+      return (
+        <div id="paymentModal" className="modal fade" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel" aria-hidden="true">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 className="modal-title text-center" id="exampleModalLabel">Оплата</h4>
+              </div>
+
+              <div className="modal-body">
+                <PaymentInfoBox />
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    }
+  });
 
 
-    var mountedPaymentWindow = React.render(<PaymentWindow />, document.getElementById("payment-window"));
+  var mountedPaymentWindow = React.render(<PaymentWindow />, document.getElementById("payment-window"));
 </script>
