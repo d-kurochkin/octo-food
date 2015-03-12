@@ -10,20 +10,20 @@
         }
     });
 
-    var OrderTableItems = React.createClass({
-        render: function () {
-            return (
-                <tr>
-                    <td>[-]</td>
-                    <td>Сосиська</td>
-                    <td>2250 тг.</td>
-                </tr>
-            )
-        }
-    });
-
     var OrderTableBox = React.createClass({
         render: function () {
+            var tableItems = this.props.data.map(function (item) {
+                console.log(item);
+                return (
+                        <tr>
+                            <td>[-]</td>
+                            <td>{item.name}</td>
+                            <td>1<b>x</b>{item.price} тг.</td>
+                        </tr>
+                );
+            });
+
+
             return (
                 <div className="panel-body">
                     <table className="table table-condensed order-tbody">
@@ -33,7 +33,7 @@
                             <th className="col-sm-3">Стоимость</th>
                         </thead>
                         <tbody id="articles-tbody">
-                            <OrderTableItems />
+                            {tableItems}
                         </tbody>
                     </table>
                 </div>
@@ -55,7 +55,7 @@
 
     var OrderPanel = React.createClass({
         getInitialState: function () {
-            return {order_list: JSON.parse(localStorage.getItem('order_list')) || []};
+            return {order_list: getOrderList()};
         },
 
         render: function () {

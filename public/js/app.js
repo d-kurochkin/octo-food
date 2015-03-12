@@ -1,13 +1,21 @@
-function article(code) {
-    return $('#article-' + code);
-}
-
 function loadPage(category, page) {
     $("#articles-content").load('/articles/' + category + '.' + page);
 }
 
+function emptyOrderList(){
+    localStorage.setItem('order_list', "{}");
+}
+
+function getOrderList(){
+    return JSON.parse(localStorage.getItem('order_list')) || {};
+}
+
+function setOrderList(order_list) {
+    localStorage.setItem('order_list', JSON.stringify(order_list));
+}
+
 function addArticle(name, code, price) {
-    var order_list = JSON.parse(localStorage.getItem('order_list'));
+    var order_list = getOrderList;
     var item = {
         name: name,
         code: code,
@@ -18,8 +26,7 @@ function addArticle(name, code, price) {
         order_list.push(item);
 
         mountedOrderPanel.setState({order_list: order_list});
-
-        localStorage.setItem('order_list', JSON.stringify(order_list));
+        setOrderList(order_list);
     }
 }
 
@@ -96,7 +103,7 @@ $(document).ready(function () {
 
     if (_.isNull(order_list)) {
         console.log("Create empty storage");
-        localStorage.setItem('order_list', "[]");
+
     } else {
 
     }
