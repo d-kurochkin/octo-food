@@ -34,11 +34,111 @@
     }
   });
 
+  var NoteNumpadButton = React.createClass({
+    add: function () {
+      chargeAddNote(this.props.val);
+    },
+    render: function () {
+      return (
+        <td>
+          <button type="button" className="btn btn-lg btn-default btn-num" onClick={this.add}>{this.props.val}</button>
+        </td>
+      )
+    }
+  });
+
+  var NumberNumpadButton = React.createClass({
+    add: function () {
+      chargeAddNumber(this.props.val);
+    },
+    render: function () {
+      return (
+        <td>
+          <button type="button" className="btn btn-lg btn-default btn-num" onClick={this.add}>{this.props.val}</button>
+        </td>
+      )
+    }
+  });
+
+  var RemoveNumpadButton = React.createClass({
+    remove: function () {
+      chargeRemoveNumber();
+    },
+    render: function () {
+      return (
+        <td>
+          <button type="button" className="btn btn-lg btn-default btn-num" onClick={this.remove}>
+            <span className="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+          </button>
+        </td>
+      )
+    }
+  });
+
+  var EmptyNumpadButton = React.createClass({
+    remove: function () {
+      emptyCharge();
+    },
+    render: function () {
+      return (
+        <td>
+          <button type="button" className="btn btn-lg btn-default btn-num" onClick={this.remove}>
+            <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </button>
+        </td>
+      )
+    }
+  });
+
+  var PaymentNumpad = React.createClass({
+    render: function () {
+      return (
+        <div>
+          <table>
+            <tr>
+              <NumberNumpadButton val="7"/>
+              <NumberNumpadButton val="8"/>
+              <NumberNumpadButton val="9"/>
+
+              <NoteNumpadButton val="10000"/>
+              <RemoveNumpadButton />
+            </tr>
+            <tr>
+              <NumberNumpadButton val="4"/>
+              <NumberNumpadButton val="5"/>
+              <NumberNumpadButton val="6"/>
+
+              <NoteNumpadButton val="5000"/>
+              <EmptyNumpadButton />
+            </tr>
+            <tr>
+              <NumberNumpadButton val="1"/>
+              <NumberNumpadButton val="2"/>
+              <NumberNumpadButton val="3"/>
+
+              <NoteNumpadButton val="1000"/>
+              <NoteNumpadButton val="2000"/>
+            </tr>
+            <tr>
+              <NumberNumpadButton val="0"/>
+              <NumberNumpadButton val="00"/>
+              <NumberNumpadButton val="000"/>
+
+              <NoteNumpadButton val="200"/>
+              <NoteNumpadButton val="500"/>
+            </tr>
+
+          </table>
+        </div>
+      )
+    }
+  });
+
   var PaymentWindow = React.createClass({
     getInitialState: function () {
       return {
         total: getOrderListTotal(),
-        charge: 0
+        charge: getCharge()
       }
     },
 
@@ -57,6 +157,9 @@
 
               <div className="modal-body">
                 <PaymentInfoBox data={this.state}/>
+
+                <PaymentNumpad />
+
               </div>
             </div>
           </div>
