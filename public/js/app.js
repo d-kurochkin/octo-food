@@ -6,7 +6,7 @@ function sendOrder() {
   var order = {};
   order.timestamp = new Date().getTime();
   order.items  = getOrderList();
-  order.charge = getOrderListTotal();
+  order.total = getOrderListTotal();
 
   $.post('/order', order, function (data) {
     if (data == '0') {
