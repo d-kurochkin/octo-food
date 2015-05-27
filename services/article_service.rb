@@ -36,7 +36,7 @@ class ArticleService
 
   def self.get_page category, page
     Article.where(:parent => category)
-        .order(Sequel.desc(:is_group))
+        .order(Sequel.asc(:name))
         .limit(PAGE_LIMIT, page*PAGE_LIMIT)
         .map { |item| item.values }
   end
