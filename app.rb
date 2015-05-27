@@ -19,7 +19,6 @@ DEBUG = false
 ArticleService.import
 
 get '/' do
-  puts 'ok'
   if SessionService.exist?
     erb :index
   else

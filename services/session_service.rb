@@ -31,7 +31,6 @@ class SessionService
   end
 
   def self.update order_total
-    puts order_total.inspect
     session = SessionService.get_current
     session[:total] = session[:total] + order_total
 
