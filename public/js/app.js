@@ -1,11 +1,15 @@
 function loadPage(category, page) {
-  $("#articles-content").load('/articles/' + category + '.' + page);
+  $("#articles-content").load('/articles/' + category + '.' + page, function (response, status, xhr) {
+    if (status == "error") {
+      alert("Товары для данной категории отсутствуют");
+    }
+  });
 }
 
 function sendOrder() {
   var order = {};
   order.timestamp = new Date().getTime();
-  order.items  = getOrderList();
+  order.items = getOrderList();
   order.total = getOrderListTotal();
 
   $.post('/order', order, function (data) {
